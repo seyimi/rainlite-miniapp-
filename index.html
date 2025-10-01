@@ -1,1 +1,80 @@
-Single-page demo UI (Telegram Web App compatible)
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>RainLite — Telegram Mini App Demo</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="topbar">
+    <div class="brand">RainLite</div>
+    <div class="user" id="userName">Guest</div>
+  </header>
+
+  <main class="container">
+    <section class="panel balance-panel">
+      <div class="label">Balance</div>
+      <div id="balance" class="big">1000 ✨</div>
+    </section>
+
+    <section class="panel case-panel">
+      <div class="case-left" id="caseLeft">
+        <div id="caseThumb" class="case-thumb">🎁</div>
+      </div>
+      <div class="case-right">
+        <h2 class="case-title">Neon Starter Case</h2>
+        <p class="case-odds">Odds — Common 80% • Rare 18% • Epic 1.8% • Legendary 0.2%</p>
+
+        <div class="actions">
+          <button id="publishBtn" class="btn outline">Publish Server Hash</button>
+          <button id="openBtn" class="btn primary">Open Case (100 ✨)</button>
+        </div>
+        <div class="small-note">Workflow: Publish a server hash → open cases → reveal seed to verify.</div>
+      </div>
+    </section>
+
+    <section class="panel provably-panel">
+      <h3>Provably-fair demo</h3>
+      <div class="field-row">
+        <label>Server seed hash</label>
+        <div class="field">
+          <code id="serverHash">—</code>
+          <button class="copy" data-target="serverHash">Copy</button>
+        </div>
+      </div>
+
+      <div class="field-row">
+        <label>Client seed (your seed)</label>
+        <div class="field">
+          <code id="clientSeed">—</code>
+          <button class="copy" data-target="clientSeed">Copy</button>
+        </div>
+      </div>
+
+      <div class="field-row">
+        <label>Outcome hash (last open)</label>
+        <div class="field">
+          <code id="outcomeHash">—</code>
+          <button class="copy" data-target="outcomeHash">Copy</button>
+        </div>
+      </div>
+
+      <div class="reveal-actions">
+        <button id="revealBtn" class="btn outline">Reveal Server Seed (for verification)</button>
+        <div class="reveal-area" id="revealArea" aria-hidden="true">
+          <div class="reveal-row"><strong>Server seed:</strong> <code id="serverSeed">—</code></div>
+          <div class="reveal-row"><strong>Nonce used:</strong> <code id="nonce">0</code></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="panel log-panel">
+      <h4>Log</h4>
+      <div id="log" class="log">Ready.</div>
+    </section>
+  </main>
+
+  <script src="app.js"></script>
+</body>
+</html>
